@@ -1,0 +1,8 @@
+.sidebar {
+  text-align: center;
+  font-style: italic;
+}
+
+.sidebar .rtl {
+  direction: rtl;
+}
