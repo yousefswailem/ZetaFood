@@ -66,9 +66,12 @@ const Login = () => {
         </Button>
 
         </form>
+
     </div>
-   
+
     </Box>
+
+    <div className="powered-by">Powered By GoIT</div>
     
 </div>
  
