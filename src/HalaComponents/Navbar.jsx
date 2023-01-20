@@ -91,7 +91,7 @@ return (
         >
             {pages.map((page) => (
             <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Typography sx={{fontWeight: 'bold',fontSize: 16,textAlign:"center"}}>
+                <Typography variant="h1" sx={{textAlign:"center"}}>
                     {page}</Typography>
             </MenuItem>
             ))}
