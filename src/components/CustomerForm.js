@@ -6,15 +6,25 @@ const useStyles = makeStyles(theme => ({
         '& .MuiFormControl-root': {
             width: '80%',
             margin: theme.spacing(2),
+            direction: "rtl"
         },
         '& .MuiTextField-root': {
             backgroundColor: 'white',
         },
         '& .MuiInputBase-root': {
             backgroundColor: 'white',
+        },
+        '& .MuiFormLabel-root': {
+            left: 'inherit!important',
+            right: '1.75rem !important',
+            transformOrigin: 'right !important',
+        },
+        '& .MuiSvgIcon-root': {
+            position: 'left'
         }
     },
 }))
+
 const CustomerForm = () => {
     const [values, setValues] = useState("");
     const classes = useStyles();
@@ -22,18 +32,19 @@ const CustomerForm = () => {
         <form className={classes.root} >
 
             <Grid container>
-                <Grid item>
-                <h5 style={{ color: 'white'}}>إضافة زبون</h5>
-                <hr/>
+                <Grid item dir="rtl">
+                    <p style={{ color: 'white' }}>إضافة زبون</p>
+                    <hr />
                     <TextField
                         varient="outlined"
                         label="اسم المستخدم"
-                    // value={values}
-                    >
-                    </TextField>
-                    <FormControl variant="outlined" className={classes.root}>
-                        <InputLabel htmlFor="dataManager">اختيار مسؤول البيانات</InputLabel>
+                        id="outlined-basic"
+                        required
+                    />
+                    <FormControl variant="outlined" dir="rtl" className={classes.root}>
+                        <InputLabel htmlFor="dataManager" dir="rtl">اختيار مسؤول البيانات</InputLabel>
                         <Select
+                            dir="rtl"
                             native
                             label="dataManager"
                             inputProps={{
@@ -43,15 +54,15 @@ const CustomerForm = () => {
                         >
                             {/* Example data to be removed */}
                             <option aria-label="None" value="" />
-                            <option value={"أحمد"}>أحمد</option>
-                            <option value={"محمد"}>محمد</option>
-                            <option value={"حسان"}>حسان</option>
+                            <option value={"أحمد"} dir="rtl">أحمد</option>
+                            <option value={"محمد"} dir="rtl">محمد</option>
+                            <option value={"حسان"} dir="rtl">حسان</option>
                         </Select>
-                        
+
                     </FormControl>
-                    <Button variant="contained" color="secondary">
-                            اضافة
-                        </Button>
+                    <Button variant="contained" href="/" color="secondary">
+                        اضافة
+                    </Button>
                 </Grid >
             </Grid>
         </form>
