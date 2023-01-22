@@ -7,30 +7,42 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import { Button, makeStyles } from '@material-ui/core';
 
+const useStyles = makeStyles(theme => ({
+    root: {
+        '& .MuiTableCell-root': {
+            left: 'inherit!important',
+            right: '1.75rem !important',
+            transformOrigin: 'right !important',
+            direction: "rtl",
+        },
+    },
+}))
 const columns = [
-    { id: 'تعديل', label: ' تعديل/حذف', minWidth: 100 },
-    {id: 'المبيعات',label: 'اسم مسؤول المبيعات', minWidth: 100},
-    { id: 'الزبون', label: 'اسم الزبون', minWidth: 100 },
-    { id: 'رقم', label: 'رقم', minWidth: 20 },
+    { id: 'تعديل', label: ' تعديل/حذف', minWidth: 100, align: 'right',},
+    { id: 'المبيعات', label: 'اسم مسؤول المبيعات', minWidth: 100,align: 'right',},
+    { id: 'الزبون', label: 'اسم الزبون', minWidth: 100,align: 'right',},
+    { id: 'رقم', label: 'رقم', minWidth: 20,align: 'right', },
 ];
 //Example on data to be removed and replaced with data from backend
 const rows = [
-    {رقم:10, الزبون:'بلدنا للتجارة العامة', المبيعات:"يوسف"},
-    {رقم:10, الزبون:'بلدنا للتجارة العامة', المبيعات:"يوسف"},
-    {رقم:10, الزبون:'بلدنا للتجارة العامة', المبيعات:"يوسف"},
-    {رقم:10, الزبون:'بلدنا للتجارة العامة', المبيعات:"يوسف"},
-    {رقم:10, الزبون:'بلدنا للتجارة العامة', المبيعات:"يوسف"},
-    {رقم:10, الزبون:'بلدنا للتجارة العامة', المبيعات:"يوسف"},
-    {رقم:10, الزبون:'بلدنا للتجارة العامة', المبيعات:"يوسف"},
-    {رقم:10, الزبون:'بلدنا للتجارة العامة', المبيعات:"يوسف"},
-    {رقم:10, الزبون:'بلدنا للتجارة العامة', المبيعات:"يوسف"},
-    {رقم:10, الزبون:'بلدنا للتجارة العامة', المبيعات:"يوسف"},
-    {رقم:10, الزبون:'بلدنا للتجارة العامة', المبيعات:"يوسف"},
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
 ];
 const CustomerDataTable = () => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(100);
+    const classes = useStyles();
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -41,10 +53,10 @@ const CustomerDataTable = () => {
         setPage(0);
     };
     return (
-        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+        <Paper sx={{ width: '100%', overflow: 'hidden', margin: "10px" }}>
             <TableContainer sx={{ maxHeight: 440 }}>
                 <Table stickyHeader aria-label="sticky table">
-                    <TableHead>
+                    <TableHead >
                         <TableRow>
                             {columns.map((column) => (
                                 <TableCell
@@ -57,7 +69,7 @@ const CustomerDataTable = () => {
                             ))}
                         </TableRow>
                     </TableHead>
-                    <TableBody>
+                    <TableBody dir="rtl">
                         {rows
                             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row) => {
@@ -66,7 +78,7 @@ const CustomerDataTable = () => {
                                         {columns.map((column) => {
                                             const value = row[column.id];
                                             return (
-                                                <TableCell key={column.id} align={column.align}>
+                                                <TableCell style={{ align: "right" }} key={column.id} align={column.align}>
                                                     {column.format && typeof value === 'number'
                                                         ? column.format(value)
                                                         : value}

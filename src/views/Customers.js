@@ -5,7 +5,7 @@ import CustomerForm from '../components/CustomerForm'
 
 const useStyles = makeStyles(theme => ({
     pageContent: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(2),
         padding: theme.spacing(1),
         backgroundColor: '#326370'
 
@@ -20,11 +20,11 @@ const Customers = () => {
             {/* <Navbar/> */}
             <Grid container>
                 <Grid item xs ={8}>
-                    <CustomerDataTable />
+                    <CustomerDataTable/>
                 </Grid>
                 <Grid item xs ={4}>
                     <Paper className= {classes.pageContent}>
-                        <CustomerForm />
+                        <CustomerForm/>
                     </Paper>
                 </Grid>
             </Grid>

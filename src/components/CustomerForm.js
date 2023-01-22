@@ -1,4 +1,4 @@
-import { Grid, makeStyles, TextField, InputLabel, Select, FormControl, Button } from '@material-ui/core'
+import { Grid, makeStyles, TextField, InputLabel, Select, FormControl, Button, FormLabel } from '@material-ui/core'
 import React, { useState } from 'react'
 
 const useStyles = makeStyles(theme => ({
@@ -6,7 +6,6 @@ const useStyles = makeStyles(theme => ({
         '& .MuiFormControl-root': {
             width: '80%',
             margin: theme.spacing(2),
-            direction: "rtl"
         },
         '& .MuiTextField-root': {
             backgroundColor: 'white',
@@ -20,7 +19,10 @@ const useStyles = makeStyles(theme => ({
             transformOrigin: 'right !important',
         },
         '& .MuiSvgIcon-root': {
-            position: 'left'
+            position: 'left',
+            left: '1.75rem !important',
+            right: 'inherit!important',
+            transformOrigin: 'right !important',
         }
     },
 }))
@@ -32,19 +34,20 @@ const CustomerForm = () => {
         <form className={classes.root} >
 
             <Grid container>
-                <Grid item dir="rtl">
-                    <p style={{ color: 'white' }}>إضافة زبون</p>
+                <Grid item>
+                    <FormLabel style={{ color: 'white'}}>إضافة زبون</FormLabel>
                     <hr />
+                    <InputLabel style={{ color: 'white', float:'right', marginRight: '30px'}}>اسم المستخدم</InputLabel>
                     <TextField
                         varient="outlined"
                         label="اسم المستخدم"
                         id="outlined-basic"
                         required
                     />
-                    <FormControl variant="outlined" dir="rtl" className={classes.root}>
-                        <InputLabel htmlFor="dataManager" dir="rtl">اختيار مسؤول البيانات</InputLabel>
+                    <FormControl variant="outlined" >
+                        <InputLabel htmlFor="dataManager">اختيار مسؤول البيانات</InputLabel>
                         <Select
-                            dir="rtl"
+                            required
                             native
                             label="dataManager"
                             inputProps={{
@@ -54,11 +57,10 @@ const CustomerForm = () => {
                         >
                             {/* Example data to be removed */}
                             <option aria-label="None" value="" />
-                            <option value={"أحمد"} dir="rtl">أحمد</option>
-                            <option value={"محمد"} dir="rtl">محمد</option>
-                            <option value={"حسان"} dir="rtl">حسان</option>
+                            <option value={"أحمد"}>أحمد</option>
+                            <option value={"محمد"}>محمد</option>
+                            <option value={"حسان"}>حسان</option>
                         </Select>
-
                     </FormControl>
                     <Button variant="contained" href="/" color="secondary">
                         اضافة
