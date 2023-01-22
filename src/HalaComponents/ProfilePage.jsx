@@ -56,9 +56,7 @@ return (
         <br />
         <Input type='text' id='name' name='name'  onChange={formik.handleChange} value={formik.values.name} onBlur={formik.handleBlur} style={{ backgroundColor: "white" ,marginTop:"2%"}} fullWidth
 
-        InputProps={{
-        startAdornment: <InputAdornment position="start"><Person2RoundedIcon/></InputAdornment>,
-      }} 
+    
 
        />
         {formik.touched.name && formik.errors.name?<div style={{color: '#e22f56'}}>{formik.errors.name}</div>:null}
