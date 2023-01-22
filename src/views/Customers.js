@@ -5,11 +5,11 @@ import CustomerForm from '../components/CustomerForm'
 
 const useStyles = makeStyles(theme => ({
     pageContent: {
-        margin: theme.spacing(2),
-        padding: theme.spacing(1),
-        backgroundColor: '#326370'
-
-    }
+        margin: theme.spacing(3),
+        padding: theme.spacing(4),
+        backgroundColor: '#326370',
+        borderRadius: '10px',
+    },
 }))
 
 const Customers = () => {
@@ -19,12 +19,12 @@ const Customers = () => {
             {/* To be added */}
             {/* <Navbar/> */}
             <Grid container>
-                <Grid item xs ={8}>
-                    <CustomerDataTable/>
+                <Grid item xs={8}>
+                    <CustomerDataTable />
                 </Grid>
-                <Grid item xs ={4}>
-                    <Paper className= {classes.pageContent}>
-                        <CustomerForm/>
+                <Grid item xs={4}>
+                    <Paper className={classes.pageContent}>
+                        <CustomerForm />
                     </Paper>
                 </Grid>
             </Grid>

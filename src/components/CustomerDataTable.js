@@ -9,16 +9,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { Button, makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        '& .MuiTableCell-root': {
-            left: 'inherit!important',
-            right: '1.75rem !important',
-            transformOrigin: 'right !important',
-            direction: "rtl",
-        },
-    },
-}))
+
 const columns = [
     { id: 'تعديل', label: ' تعديل/حذف', minWidth: 100, align: 'right',},
     { id: 'المبيعات', label: 'اسم مسؤول المبيعات', minWidth: 100,align: 'right',},
@@ -27,6 +18,17 @@ const columns = [
 ];
 //Example on data to be removed and replaced with data from backend
 const rows = [
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف",تعديل: <><Button variant="contained" href="/" color="secondary" style={{marginLeft:"5px"}}>تعديل</Button><Button variant="contained" href="/" >حذف</Button></>},
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
+    { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
     { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
     { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
     { رقم: 10, الزبون: 'بلدنا للتجارة العامة', المبيعات: "يوسف" },
@@ -42,7 +44,7 @@ const rows = [
 const CustomerDataTable = () => {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(100);
-    const classes = useStyles();
+    
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -54,10 +56,11 @@ const CustomerDataTable = () => {
     };
     return (
         <Paper sx={{ width: '100%', overflow: 'hidden', margin: "10px" }}>
-            <TableContainer sx={{ maxHeight: 440 }}>
+            <h3>الزبائن</h3>
+            <TableContainer sx={{ maxHeight: 960 }}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead >
-                        <TableRow>
+                        <TableRow >
                             {columns.map((column) => (
                                 <TableCell
                                     key={column.id}
@@ -78,10 +81,8 @@ const CustomerDataTable = () => {
                                         {columns.map((column) => {
                                             const value = row[column.id];
                                             return (
-                                                <TableCell style={{ align: "right" }} key={column.id} align={column.align}>
-                                                    {column.format && typeof value === 'number'
-                                                        ? column.format(value)
-                                                        : value}
+                                                <TableCell key={column.id} align={column.align}>
+                                                    {value}
                                                 </TableCell>
                                             );
                                         })}

@@ -1,17 +1,18 @@
 import { Grid, makeStyles, TextField, InputLabel, Select, FormControl, Button, FormLabel } from '@material-ui/core'
 import React, { useState } from 'react'
+import { typography } from '@mui/system';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
         '& .MuiFormControl-root': {
-            width: '80%',
-            margin: theme.spacing(2),
-        },
-        '& .MuiTextField-root': {
+            maxWidth: '1200px',
+            width: '100%',
+            margin: theme.spacing(0.5),
+            marginBottom: theme.spacing(2),
+            borderRadius: '5px',
             backgroundColor: 'white',
-        },
-        '& .MuiInputBase-root': {
-            backgroundColor: 'white',
+            // align:'center'
         },
         '& .MuiFormLabel-root': {
             left: 'inherit!important',
@@ -19,11 +20,16 @@ const useStyles = makeStyles(theme => ({
             transformOrigin: 'right !important',
         },
         '& .MuiSvgIcon-root': {
-            position: 'left',
             left: '1.75rem !important',
             right: 'inherit!important',
             transformOrigin: 'right !important',
-        }
+        },
+        '& .MuiButtonBase-root': {
+            width: '80%',
+        },
+        '& .MuiSelect-root': {
+            direction: 'rtl'
+        },
     },
 }))
 
@@ -32,41 +38,33 @@ const CustomerForm = () => {
     const classes = useStyles();
     return (
         <form className={classes.root} >
+            <FormLabel style={{ color: 'white', fontSize: '25px' }} >إضافة زبون</FormLabel>
+            <hr />
+            <TextField
+                varient="outlined"
+                label="اسم المستخدم"
+                id="outlined-basic"
+                required
+                dir='rtl'
+            />
+            <FormControl variant="outlined" >
+                <InputLabel htmlFor="dataManager">اختيار مسؤول البيانات</InputLabel>
+                <Select
+                    required
+                    native
+                    label="dataManager"
+                >
+                    {/* Example data to be removed */}
+                    <option aria-label="None" value="" />
+                    <option value={"أحمد"}>أحمد</option>
+                    <option value={"محمد"}>محمد</option>
+                    <option value={"حسان"}>حسان</option>
+                </Select>
+            </FormControl>
+            <Button variant="contained" href="/" color="secondary" style={{ fontSize: '20px' }}>
+                إضافة
+            </Button>
 
-            <Grid container>
-                <Grid item>
-                    <FormLabel style={{ color: 'white'}}>إضافة زبون</FormLabel>
-                    <hr />
-                    <InputLabel style={{ color: 'white', float:'right', marginRight: '30px'}}>اسم المستخدم</InputLabel>
-                    <TextField
-                        varient="outlined"
-                        label="اسم المستخدم"
-                        id="outlined-basic"
-                        required
-                    />
-                    <FormControl variant="outlined" >
-                        <InputLabel htmlFor="dataManager">اختيار مسؤول البيانات</InputLabel>
-                        <Select
-                            required
-                            native
-                            label="dataManager"
-                            inputProps={{
-                                name: 'مسؤول',
-                                id: 'dataManager',
-                            }}
-                        >
-                            {/* Example data to be removed */}
-                            <option aria-label="None" value="" />
-                            <option value={"أحمد"}>أحمد</option>
-                            <option value={"محمد"}>محمد</option>
-                            <option value={"حسان"}>حسان</option>
-                        </Select>
-                    </FormControl>
-                    <Button variant="contained" href="/" color="secondary">
-                        اضافة
-                    </Button>
-                </Grid >
-            </Grid>
         </form>
     )
 }
