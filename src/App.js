@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";//hala
 
 import Navbar from './HalaComponents/Navbar';
+import ProfilePage from './HalaComponents/ProfilePage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/navbar" element={<Navbar />} />
+        <Route path="/" element={<ProfilePage/>} />
       </Routes>
     </div>
   );
